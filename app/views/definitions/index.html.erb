@@ -1,28 +1,34 @@
 <p id="notice"><%= notice %></p>
+<div class="navbar navbar-default square_corners">
+  <div class="container-fluid">
+    <h1>Rails Dictionary</h1>
+  </div>
+</div>
 
-<h1>Listing Definitions</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Word</th>
-      <th>Meaning</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @definitions.each do |definition| %>
+<div>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= definition.word %></td>
-        <td><%= definition.meaning %></td>
-        <td><%= link_to 'Show', definition %></td>
-        <td><%= link_to 'Edit', edit_definition_path(definition) %></td>
-        <td><%= link_to 'Destroy', definition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Word</th>
+        <th>Meaning</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @definitions.each do |definition| %>
+        <tr>
+          <td><%= definition.word %></td>
+          <td><%= definition.meaning %></td>
+          <td><%= link_to 'Show', definition %></td>
+          <td><%= link_to 'Edit', edit_definition_path(definition) %></td>
+          <td><%= link_to 'Delete', definition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
 
 <br>
 
