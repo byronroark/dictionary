@@ -15,10 +15,11 @@
  */
  body {
    background-color: #dddddd;
+   margin-left: 20px;
  }
 
  .square_corners {
-   border-radius: 0 !important;
+   border-radius: 0;
  }
 
  .cell_padding {
