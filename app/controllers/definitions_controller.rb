@@ -4,16 +4,20 @@ class DefinitionsController < ApplicationController
   # GET /definitions
   # GET /definitions.json
   def index
-    if params[:search]
-      @definition = Definition.search(params[:search])
-    else
-      @definitions = Definition.all
-    end
+    @definitions = Definition.all
   end
 
   # GET /definitions/1
   # GET /definitions/1.json
   def show
+  end
+
+  def search
+    if params[:search]
+      @definitions = Definition.search(params[:search])
+    else
+      @definitions = Definition.all
+    end
   end
 
   # GET /definitions/new

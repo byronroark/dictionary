@@ -20,3 +20,16 @@
  .square_corners {
    border-radius: 0 !important;
  }
+
+ .cell_padding {
+   padding: 2px;
+ }
+
+a.btn {
+  color: white;
+}
+
+.table-button-cell {
+  /* There has to be a better way */
+  width: 100px;
+}

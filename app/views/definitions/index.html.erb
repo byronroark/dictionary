@@ -1,12 +1,10 @@
-<p id="notice"><%= notice %></p>
-<div class="navbar navbar-default square_corners">
-  <div class="container-fluid">
-    <h1>Rails Dictionary</h1>
-  </div>
-</div>
-
-<div>
-  <table class="table">
+  <h1>Rails Dictionary</h1>
+  <%= link_to 'New Word', new_definition_path, class: "btn btn-success" %>
+  <% if @search %>
+    <h3>You search for <%= @search %></h3>
+    <h4>Found <%= pluralize(@definitions.count, "definition") %></h4>
+  <% end %>
+  <table class="table table-condensed table-hover">
     <thead>
       <tr>
         <th>Word</th>
@@ -20,16 +18,16 @@
         <tr>
           <td><%= definition.word %></td>
           <td><%= definition.meaning %></td>
-          <td><%= link_to 'Show', definition %></td>
-          <td><%= link_to 'Edit', edit_definition_path(definition) %></td>
-          <td><%= link_to 'Delete', definition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td class="table-button-cell"><%= button_to 'Display', definition, class: "btn btn-primary cell_padding", method: :get  %></td>
+          <td class="table-button-cell"><%= button_to 'Edit', edit_definition_path(definition), class: "btn btn-primary cell_padding" %></td>
+          <td class="table-button-cell"><%= button_to 'Delete', definition, method: :delete, class: "btn btn-danger cell_padding", data: { confirm: 'Are you sure you want to delete this definition?' } %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
-</div>
-
 
 <br>
 
 <%= link_to 'New Definition', new_definition_path %>
+
+<p id="notice"><%= notice %></p>
