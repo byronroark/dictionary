@@ -13,10 +13,9 @@ class DefinitionsController < ApplicationController
   end
 
   def search
-    params[:search]
-      @definitions = Definition.where("word like ? or meaning like ?", "%#{@search}%", "%#{@search}%")
+    @definitions = Definition.where("word like ? or meaning like ?", "%#{params[:terms]}%", "%#{params[:terms]}%")
 
-      render :index
+    render :index
   end
 
   # GET /definitions/new
