@@ -22,15 +22,11 @@
    border-radius: 0;
  }
 
- .cell_padding {
-   padding: 2px;
- }
-
-a.btn {
-  color: white;
-}
-
 .table-button-cell {
   /* There has to be a better way */
   width: 100px;
+}
+
+.app-content {
+    margin-top: 30px;
 }

@@ -13,11 +13,10 @@ class DefinitionsController < ApplicationController
   end
 
   def search
-    if params[:search]
-      @definitions = Definition.search(params[:search])
-    else
-      @definitions = Definition.all
-    end
+    params[:search]
+      @definitions = Definition.where("word like ? or meaning like ?", "%#{@search}%", "%#{@search}%")
+
+      render :index
   end
 
   # GET /definitions/new
@@ -64,7 +63,7 @@ class DefinitionsController < ApplicationController
   def destroy
     @definition.destroy
     respond_to do |format|
-      format.html { redirect_to definitions_url, notice: 'Definition was successfully destroyed.' }
+      format.html { redirect_to definitions_url, notice: 'Definition was successfully deleted.' }
       format.json { head :no_content }
     end
   end
