@@ -39,6 +39,7 @@ group :development, :test do
   gem 'byebug'
   gem 'sqlite3'
   gem 'pry-byebug'
+  gem 'better_errors'
 end
 
 group :development do
