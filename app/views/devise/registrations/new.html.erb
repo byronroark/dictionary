@@ -17,9 +17,11 @@
         <div class="form-group">
           <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm password" %>
         </div>
-        <%= f.submit t('.sign_up', :default => "Sign up"), class: "btn btn-primary" %>
+        <%= f.submit t('.sign_in', :default => "Sign up"), class: "btn btn-primary" %>
+        <%- if controller_name != 'sessions' %>
+        <span> Already have an account? <%= link_to t(".sign_in", :default => "Sign in"), new_session_path(resource_name) %>
+        <% end -%></span>
       <% end %>
     </div>
   </div>
 </div>
-<%= render "devise/shared/links" %>

@@ -22,8 +22,10 @@
           </div>
           <% end %>
         <%= f.submit  t('.sign_in', :default => "Sign in"), class: "btn btn-primary" %>
+        <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+        <%= link_to t(".forgot_your_password", :default => "Forgot your password?"), new_password_path(resource_name) %>
+        <% end -%>
       <% end %>
     </div>
   </div>
 </div>
-<%= render "devise/shared/links" %>
