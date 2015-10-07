@@ -10,7 +10,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    # Creates a new session if the user/pw is correct
     email    = params[:email]
     password = params[:password]
 

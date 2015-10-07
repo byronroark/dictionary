@@ -1,5 +1,5 @@
 class DefinitionsController < ApplicationController
-  before_action :ensure_logged_in, except: [:index, :search]
+  before_action :ensure_logged_in, except: [:index, :show, :search]
   before_action :set_definition, only: [:show, :edit, :update, :destroy]
 
   # GET /definitions
