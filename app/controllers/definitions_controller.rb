@@ -13,7 +13,8 @@ class DefinitionsController < ApplicationController
   end
 
   def search
-    @definitions = Definition.search(params[:q])
+    @search = params[:q]
+    @definitions = Definition.where("word like ? or meaning like ?", "%#{@search}%", "%#{@search}%")
 
     render :index
   end
