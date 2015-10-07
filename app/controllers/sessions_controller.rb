@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: email)
     if user && password == user.password
       session[:user_id] = user.id
-      redirect_to root_path
+      redirect_to definitions_path
     else
       # unknown user
       # set some notices to help the user
