@@ -1,14 +1,22 @@
 Rails.application.routes.draw do
+  root 'definitions#index'
+
   resources :definitions do
     collection do
-      get 'search'
+      get :search
     end
   end
+
+  resources :sessions do
+    collection do
+      delete :destroy
+    end
+  end
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'definitions#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
