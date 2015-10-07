@@ -1,19 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'definitions#index'
 
   resources :definitions do
     collection do
       get :search
-    end
-  end
-
-  get '/login', to: 'sessions#new'
-  post '/login', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
-
-  resources :sessions do
-    collection do
-      delete :destroy
     end
   end
 
