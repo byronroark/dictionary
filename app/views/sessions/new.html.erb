@@ -1,16 +1,20 @@
 <div class="page-header">
   <div class="continer">
-    <%= form_tag(sessions_path, method: :post) %>
-    <h4 class="form-signin-heading">Please sign in</h4>
-    <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
-    <div class="checkbox">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
+    <div class="row">
+      <div class="col-md-offset-1 col-md-5 col-md-offset-6">
+        <%= form_tag(sessions_path, method: :post) %>
+        <h4 class="form-signin-heading">Please sign in</h4>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+      </div>
+      </div>
     </div>
-    <button class="btn btn-default" type="submit">Sign in</button>
-  </div>
 </div>
