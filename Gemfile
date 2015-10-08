@@ -47,6 +47,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'pry-byebug'
   gem 'better_errors'
+  gem 'factory_girl_rails'
 end
 
 group :development do

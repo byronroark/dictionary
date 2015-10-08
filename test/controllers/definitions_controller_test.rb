@@ -1,8 +1,8 @@
 require 'test_helper'
-
 class DefinitionsControllerTest < ActionController::TestCase
   setup do
-    @definition = definitions(:one)
+    @definition = create(:definition)
+    @user = create(:user)
   end
 
   test "should get index" do
@@ -12,16 +12,29 @@ class DefinitionsControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
+    sign_in :user, @user
     get :new
     assert_response :success
   end
 
   test "should create definition" do
+    sign_in :user, @user
+
+    # Make a new definition but do NOT put in the database
+    # because the post will do that below. We make a new one
+    # that is different than the factory we create above (e.g. @definition)
+    brand_new_definition = build(:definition)
+
     assert_difference('Definition.count') do
-      post :create, definition: { meaning: @definition.meaning, word: @definition.word }
+      post :create, definition: { meaning: brand_new_definition.meaning, word: brand_new_definition.word }
     end
 
-    assert_redirected_to definition_path(assigns(:definition))
+    # redirect_to @definition
+
+    # assigns(:definition) is the same as @definition in the controller
+    # definition_path(...) => /definitions/7
+    # finally assert that we were redirected to that URL
+    assert_redirected_to assigns(:definition)
   end
 
   test "should show definition" do
@@ -30,20 +43,42 @@ class DefinitionsControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
+    sign_in :user, @user
+
     get :edit, id: @definition
     assert_response :success
   end
 
   test "should update definition" do
+    sign_in :user, @user
+
     patch :update, id: @definition, definition: { meaning: @definition.meaning, word: @definition.word }
     assert_redirected_to definition_path(assigns(:definition))
   end
 
   test "should destroy definition" do
+    sign_in :user, @user
+
     assert_difference('Definition.count', -1) do
       delete :destroy, id: @definition
     end
 
     assert_redirected_to definitions_path
+  end
+
+  # add test for "search" do
+  test "search finds the correct word" do
+    definition_1 = create(:definition)
+    definition_2 = create(:definition)
+    definition_3 = create(:definition)
+    definition_4 = create(:definition)
+
+    # Search for the word  definition_3.word
+
+    # See if the assigns has the defintion that matches (definition_3)
+
+    # Hit the search request
+
+    asser_equal definition_3, assigns(:____)
   end
 end

@@ -48,7 +48,7 @@ class DefinitionsController < ApplicationController
   # PATCH/PUT /definitions/1
   # PATCH/PUT /definitions/1.json
   def update
-    @book = Definition.find(params[:q])
+    @book = Definition.find(params[:id])
 
     respond_to do |format|
       if @definition.update(definition_params)
