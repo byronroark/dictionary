@@ -8,6 +8,8 @@ gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'dotenv-rails'
+gem 'font-awesome-sass'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Bootstrap
