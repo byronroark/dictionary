@@ -75,6 +75,9 @@ class DefinitionsControllerTest < ActionController::TestCase
   end
 
   test "search finds the correct word" do
+    # Hit the search request
+    get :search
+
     definition_1 = create(:definition)
     definition_2 = create(:definition)
     definition_3 = create(:definition)
@@ -84,7 +87,11 @@ class DefinitionsControllerTest < ActionController::TestCase
 
     # See if the assigns has the defintion that matches (definition_3)
     assert_equal definition_3, assigns(:definitions)
+  end
 
-    # Hit the search request
+  test "search finds the correct meaning" do
+    get :search
+
+
   end
 end
