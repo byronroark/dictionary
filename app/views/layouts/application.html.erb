@@ -3,23 +3,25 @@
 <head>
   <title>Byron's Rails Dictionary</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
       <div class="nav navbar-nav">
-        <h1>Byron's Rails Dictionary</h1>
+        <h1 class="brand-header">Byron's Rails Dictionary</h1>
       </div>
       <ul class="nav navbar-nav">
         <li><%= link_to 'Home', definitions_path %></li>
         <li><%= link_to 'Sign up', new_user_registration_path %></li>
-        <li><%= link_to 'Login', new_user_session_path %></li>
-        <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+        <% if current_user %>
+          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'Login', new_user_session_path %></li>
+        <% end %>
         <%= yield :more_links %>
       </ul>
       <form class="navbar-form navbar-left" action="<%= search_definitions_path %>" method="get">
@@ -31,10 +33,14 @@
     </div>
   </div>
 </nav>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+  <div class="content">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </div>
 
-  <%= yield %>
-
+  <div class="footer">
+    My footer
+  </div>
 </body>
 </html>

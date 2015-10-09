@@ -13,10 +13,7 @@
  *= require_tree .
  *= require_self
  */
- body {
-   background-color: #dddddd;
-   margin-left: 20px;
- }
+
 
  .square_corners {
    border-radius: 0;
@@ -28,5 +25,5 @@
 }
 
 .nav_links {
-    
+
 }
