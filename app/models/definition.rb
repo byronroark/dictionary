@@ -3,6 +3,6 @@ class Definition < ActiveRecord::Base
   validates :meaning, presence: true
 
   def self.search(search)
-    where("word like ? or meaning like ?", "%#{@search}%", "%#{@search}%")
+    where("word like ? or meaning like ?", "%#{search}%", "%#{search}%")
   end
 end
