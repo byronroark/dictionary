@@ -1,10 +1,13 @@
 FactoryGirl.define do
   factory :definition do
-    sequence(:word) do |sequence|
-       "Word#{sequence}"
+    sequence(:word) do |n|
+       "Word#{n}"
      end
-     sequence(:meaning) do |sequence|
-       "Meaning#{sequence}"
+    sequence(:word_type) do |n|
+       "Word type#{n}"
      end
+    sequence(:meaning) do |n|
+       "Meaning#{n}"
+    end
   end
 end

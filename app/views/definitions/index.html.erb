@@ -8,6 +8,7 @@
     <thead>
       <tr>
         <th>Word</th>
+        <th>Type</th>
         <th>Meaning</th>
         <th colspan="3"></th>
       </tr>
@@ -17,6 +18,7 @@
       <% @definitions.each do |definition| %>
         <tr>
           <td><%= definition.word %></td>
+          <td><%= definition.word_type %></td>
           <td><%= definition.meaning %></td>
           <td class="table-button-cell"><%= button_to 'Display', definition, class: "btn btn-default cell_padding", method: :get %></td>
           <td class="table-button-cell"><%= button_to 'Edit', edit_definition_path(definition), class: "btn btn-default cell_padding", method: :get %></td>
