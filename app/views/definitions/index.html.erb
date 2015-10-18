@@ -1,7 +1,7 @@
 <div class="page-header">
  <%= button_to 'New Word', new_definition_path, class: "btn btn-default", method: :get %>
-  <% if @search %>
-    <h4>Search results for <%= @search %></h4>
+  <% if @definition %>
+    <h4>Search results for <%= @definition %></h4>
     <h5>Found <%= pluralize(@definitions.count, "definition") %></h5>
   <% end %>
   <table class="table table-condensed table-hover">
@@ -14,17 +14,8 @@
       </tr>
     </thead>
 
-    <tbody>
-      <% @definitions.each do |definition| %>
-        <tr>
-          <td><%= definition.word %></td>
-          <td><%= definition.word_type %></td>
-          <td><%= definition.meaning %></td>
-          <td class="table-button-cell"><%= button_to 'Display', definition, class: "btn btn-default cell_padding", method: :get %></td>
-          <td class="table-button-cell"><%= button_to 'Edit', edit_definition_path(definition), class: "btn btn-default cell_padding", method: :get %></td>
-          <td class="table-button-cell"><%= button_to 'Delete', definition, method: :delete, class: "btn btn-danger cell_padding", data: { confirm: 'Are you sure you want to delete this definition?' } %></td>
-        </tr>
-      <% end %>
+    <tbody id="definition_list">
+      <%= render @definitions %>
     </tbody>
   </table>
   <p>
