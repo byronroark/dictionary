@@ -15,9 +15,9 @@
  */
 
 
- .square_corners {
+.square_corners {
    border-radius: 0;
- }
+}
 
 .table-button-cell {
   /* There has to be a better way */
