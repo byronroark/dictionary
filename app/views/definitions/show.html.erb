@@ -1,5 +1,8 @@
 <div class="page-header">
   <p>
+    <%= image_tag attachment_url(@definition, :profile_image, :fill, 200, 200, format: "jpg") %>
+  </p>
+  <p>
     <strong>Word:</strong>
     <%= @definition.word %>
   </p>

@@ -23,6 +23,10 @@
     <%= f.label :meaning %><br>
     <%= f.text_area :meaning, class: "form_control" %>
   </div>
+  <div class="field">
+    <%= f.label :profile_image %><br>
+    <%= f.attachment_field :profile_image %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

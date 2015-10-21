@@ -10,6 +10,11 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem 'dotenv-rails'
 gem 'font-awesome-sass'
+
+# File Uploads
+gem 'refile', require: 'refile/rails'
+gem 'refile-mini_magick'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Bootstrap

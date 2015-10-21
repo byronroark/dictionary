@@ -1,16 +1,16 @@
-<div class="panel panel-default square_corners">
-  <div class="panel-heading">
-    <h4><%= t('.resend_confirmation_instructions', :default => 'Resend confirmation instructions') %></h4>
-  </div>
-  <div class="panel-body">
-    <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post, role: "form" }) do |f| %>
-      <div class="form-group">
-        <%= f.email_field :email, autofocus: true, class: "form-control square_corners", placeholder: "Email"  %>
-      </div>
+<div class="col-md-offset-1 col-md-5 col-md-6 col-sm-offset-1 col-sm-7 col-sm-4 col-xs-offset-1 col-xs-8 col-xs-3">
+  <div class="panel panel-default square_corners">
+    <div class="panel-heading">
+      <h4><%= t('.resend_confirmation_instructions', :default => 'Resend confirmation instructions') %></h4>
+    </div>
+    <div class="panel-body">
+      <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post, role: "form" }) do |f| %>
+        <div class="form-group">
+          <%= f.email_field :email, autofocus: true, class: "form-control square_corners", placeholder: "Email"  %>
+        </div>
 
-      <%= f.submit t('.resend_confirmation_instructions', :default => 'Resend confirmation instructions'), class: "btn btn-sm btn-primary square_corners" %>
-    <% end %>
+        <%= f.submit t('.resend_confirmation_instructions', :default => 'Resend confirmation instructions'), class: "btn btn-sm btn-primary square_corners" %>
+      <% end %>
+    </div>
   </div>
 </div>
-
-<%= render "devise/shared/links" %>
